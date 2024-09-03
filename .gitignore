@@ -9,6 +9,9 @@ node_modules
 package-lock.json
 .env
 
+# pnpm
+.pnpm-store
+
 # test specific
 test-vault
 
