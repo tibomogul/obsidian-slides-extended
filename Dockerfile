@@ -2,8 +2,6 @@ FROM tibomogul/rbenv_nvm:user-node
 
 ARG USER_NAME=node
 
-SHELL ["/bin/bash", "-l", "-c"]
-
 RUN mkdir -p /home/${USER_NAME}/.ssh/
 RUN ssh-keyscan github.com >> /home/${USER_NAME}/.ssh/known_hosts
 RUN chmod 644 /home/${USER_NAME}/.ssh/known_hosts
@@ -11,6 +9,7 @@ RUN echo "Host github.com\n\tStrictHostKeyChecking no\n" >> /home/${USER_NAME}/.
 RUN chmod 600 /home/${USER_NAME}/.ssh/config
 
 # Install application utility packages
+# Sourcing nvm.sh is necessary as the NVM installer puts that in .bashrc
 RUN source "/home/${USER_NAME}/.nvm/nvm.sh" \
   && npm install -g pnpm
 
