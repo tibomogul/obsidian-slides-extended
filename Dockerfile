@@ -1,7 +1,5 @@
 FROM tibomogul/rbenv_nvm:user-node
 
-ARG USER_NAME=node
-
 RUN mkdir -p /home/${USER_NAME}/.ssh/
 RUN ssh-keyscan github.com >> /home/${USER_NAME}/.ssh/known_hosts
 RUN chmod 644 /home/${USER_NAME}/.ssh/known_hosts
