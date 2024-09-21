@@ -1,5 +1,10 @@
 FROM tibomogul/rbenv_nvm:user-node
 
+ENV APP_DIR=app
+
+RUN mkdir /home/$USER_NAME/${APP_DIR}
+WORKDIR /home/$USER_NAME/${APP_DIR}
+
 RUN mkdir -p /home/${USER_NAME}/.ssh/
 RUN ssh-keyscan github.com >> /home/${USER_NAME}/.ssh/known_hosts
 RUN chmod 644 /home/${USER_NAME}/.ssh/known_hosts
