@@ -4,6 +4,8 @@
 docker run --rm -it \
   -v $SSH_AUTH_SOCK:/ssh-agent \
   -v .:/home/node/app \
+  -e DOCKER_UID=$(id -u) \
+  -e DOCKER_GID=$(id -g) \
   -e GIT_COMMITTER_NAME="$GIT_COMMITTER_NAME" \
   -e GIT_COMMITTER_EMAIL="$GIT_COMMITTER_EMAIL" \
   -e GIT_AUTHOR_NAME="$GIT_COMMITTER_NAME" \
